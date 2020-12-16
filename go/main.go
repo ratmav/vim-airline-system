@@ -1,12 +1,12 @@
 package main
 
 import (
-    "fmt"
-    "strings"
-    "time"
+	"fmt"
+	"strings"
+	"time"
 
-    //"github.com/shirou/gopsutil/v3/host"
-    "github.com/shirou/gopsutil/v3/mem"
+	"github.com/shirou/gopsutil/v3/host"
+	"github.com/shirou/gopsutil/v3/mem"
 )
 
 func date() string {
@@ -33,17 +33,22 @@ func ram() string {
 }
 
 func temp() string {
-	var temp string
-	temp = "WIP"
-	/*
-	dc, err : host.TemperatureStat()
+	sensors, err := host.SensorsTemperatures()
 	if err != nil {
-		return "ERR"
+		return "err"
 	}
 
-	return fmt.Sprintf("%s\u00B0C", dc)
-	*/
-	return fmt.Sprintf("%s\u00B0C", temp)
+	// calculate average temperature of active sensors.
+	activeSensors := 0.0
+	temp := 0.0
+	for _, sensor := range sensors {
+		if sensor.Temperature != 0 {
+			temp += sensor.Temperature
+			activeSensors++
+		}
+	}
+
+	return fmt.Sprintf("%.f\u00B0C", (temp/activeSensors))
 }
 
 func main() {
