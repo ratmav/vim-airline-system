@@ -2,13 +2,21 @@ package main
 
 import (
     "fmt"
+    "strings"
+    "time"
 
     //"github.com/shirou/gopsutil/v3/host"
     "github.com/shirou/gopsutil/v3/mem"
 )
 
 func date() string {
-	return "TODO"
+	l, err := time.LoadLocation("UTC")
+	if err != nil {
+		return "err"
+	}
+
+	t := time.Now().In(l)
+	return fmt.Sprint(strings.ToLower(t.Format("Jan 02 15:04 MST")))
 }
 
 func cpu() string {
@@ -18,7 +26,7 @@ func cpu() string {
 func ram() string {
 	mu, err := mem.VirtualMemory()
 	if err != nil {
-		return "ERR"
+		return "err"
 	}
 
 	return fmt.Sprint(int(mu.UsedPercent))
@@ -33,12 +41,12 @@ func temp() string {
 
 	return fmt.Sprintf("%s\u00B0C", dc)
 	*/
-	return "WIP"
+	return "wip"
 }
 
 func main() {
 	fmt.Printf(
-		"%s CPU %s%% RAM %s%% %s\n",
+		"%s [cpu%s%%|ram%s%%|%s]\n",
 		date(),
 		cpu(),
 		ram(),
