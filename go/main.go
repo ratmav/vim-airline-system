@@ -33,6 +33,8 @@ func ram() string {
 }
 
 func temp() string {
+	var temp string
+	temp = "WIP"
 	/*
 	dc, err : host.TemperatureStat()
 	if err != nil {
@@ -41,12 +43,12 @@ func temp() string {
 
 	return fmt.Sprintf("%s\u00B0C", dc)
 	*/
-	return "wip"
+	return fmt.Sprintf("%s\u00B0C", temp)
 }
 
 func main() {
 	fmt.Printf(
-		"%s [cpu%s%%|ram%s%%|%s]\n",
+		"%s [%s%%cpu|%s%%ram|%s]\n",
 		date(),
 		cpu(),
 		ram(),
