@@ -3,7 +3,7 @@ vim-airline-system
 
 **alpha**
 
-local system information [vim-airline] extension
+local system information [vim-airline](https://github.com/vim-airline/vim-airline) extension
 
 ## installation
 
