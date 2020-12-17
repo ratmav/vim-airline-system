@@ -1,9 +1,9 @@
 vim-airline-system
 ==================
 
-**alpha**
-
 local system information [vim-airline](https://github.com/vim-airline/vim-airline) extension
+
+![screenshot](https://raw.github.com/ratmav/vim-airline-system/master/screenshot.png)
 
 ## supported platforms
 
