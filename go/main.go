@@ -59,10 +59,10 @@ func temp() string {
 
 func main() {
 	fmt.Printf(
-		"%s [%scpu|%s%%ram|%s]\n",
-		date(),
+		"[%scpu|%s%%ram|%s] %s",
 		cpu(),
 		ram(),
 		temp(),
+		date(),
 	)
 }

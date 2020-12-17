@@ -5,6 +5,10 @@ vim-airline-system
 
 local system information [vim-airline](https://github.com/vim-airline/vim-airline) extension
 
+## supported platforms
+
+64-bit macos (currently).
+
 ## installation
 
 use git or your plugin manager of choice to install vim-airline-system.
@@ -13,9 +17,11 @@ use git or your plugin manager of choice to install vim-airline-system.
 
 ### build
 
+**note**: go v1.15
+
 ```shell
 $ cd go
-$ go build -o ../bin/darwin
+$ go go build -o ../autoload/airline/extensions/bin/darwin --mod=vendor
 ```
 
 ## acknowledgements
