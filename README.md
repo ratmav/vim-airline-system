@@ -21,7 +21,7 @@ use git or your plugin manager of choice to install vim-airline-system.
 
 ```shell
 $ cd go
-$ go go build -o ../autoload/airline/extensions/bin/darwin --mod=vendor
+$ go build -o ../autoload/airline/extensions/bin/darwin --mod=vendor
 ```
 
 ## acknowledgements
