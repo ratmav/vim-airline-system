@@ -8,5 +8,5 @@ jobs:
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v2
         with:
-          version: master
+          version: v1.29
           working-directory: go
