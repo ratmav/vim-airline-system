@@ -3,7 +3,7 @@ vim-airline-system
 
 [vim-airline](https://github.com/vim-airline/vim-airline) system information extension.
 
-**note*: _replaces_ the vim-airline "z" section.
+**note**: _replaces_ the vim-airline "z" section.
 
 ![screenshot](https://raw.github.com/ratmav/vim-airline-system/master/screenshot.png)
 
