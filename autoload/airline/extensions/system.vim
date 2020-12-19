@@ -28,12 +28,7 @@ endfunction
 
 " airline#extensions#system#apply {{{
 function! airline#extensions#system#apply(...) abort
-  let spc = g:airline_symbols.space
-  let w:airline_section_z = get(w:, 'airline_section_z', g:airline_section_z)
-  if g:airline_right_alt_sep !=# ''
-    let w:airline_section_z .= spc.g:airline_right_alt_sep
-  endif
-  let w:airline_section_z .= spc.'%{airline#extensions#system#get()}'
+  let w:airline_section_z = '%{airline#extensions#system#get()}'
 endfunction
 " }}}
 
@@ -43,7 +38,7 @@ function! airline#extensions#system#get() abort
 
   if os ==# 'darwin'
     let sysinfo = system(s:binPath . '/bin/' . os)
-    return substitute(sysinfo, '\n\+$', '', '')
+    return os . ' ' . substitute(sysinfo, '\n\+$', '', '')
   else
     return 'unsupported platform'
   endif
@@ -58,8 +53,8 @@ endfunction
 
 " g:airline#extensions#system#timer {{{
 let g:airline#extensions#system#timer = timer_start(
-  \10000,
-  \'airline#extensions#system#timerfn',
-  \{'repeat':-1}
-\)
+  \   10000,
+  \   'airline#extensions#system#timerfn',
+  \   {'repeat':-1}
+  \ )
 " }}}
