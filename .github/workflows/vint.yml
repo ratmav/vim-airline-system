@@ -2,7 +2,7 @@ name: vint
 on: [push, pull_request]
 jobs:
   vint:
-    name: vim lint
+    name: vint
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
