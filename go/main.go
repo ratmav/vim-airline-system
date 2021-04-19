@@ -5,7 +5,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/shirou/gopsutil/v3/host"
 	"github.com/shirou/gopsutil/v3/load"
 	"github.com/shirou/gopsutil/v3/mem"
 )
@@ -38,31 +37,11 @@ func ram() string {
 	return fmt.Sprintf("%.f", mu.UsedPercent)
 }
 
-func temp() string {
-	sensors, err := host.SensorsTemperatures()
-	if err != nil {
-		return "err"
-	}
-
-	// calculate average temperature of active sensors.
-	activeSensors := 0.0
-	temp := 0.0
-	for _, sensor := range sensors {
-		if sensor.Temperature != 0 {
-			temp += sensor.Temperature
-			activeSensors++
-		}
-	}
-
-	return fmt.Sprintf("%.1f\u00B0C", (temp/activeSensors))
-}
-
 func main() {
 	fmt.Printf(
-		"[%scpu|%s%%ram|%s] %s",
+		"[%scpu|%s%%ram] %s",
 		cpu(),
 		ram(),
-		temp(),
 		date(),
 	)
 }
