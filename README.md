@@ -5,7 +5,7 @@ vim-airline-system
 
 **note**: _replaces_ the vim-airline "z" section.
 
-![screenshot](https://raw.github.com/ratmav/vim-airline-system/master/screenshot.png)
+![screenshot](https://github.com/ratmav/vim-airline-system/blob/master/screenshot.png?raw=true)
 
 ## supported platforms
 
