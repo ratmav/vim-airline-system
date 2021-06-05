@@ -4,7 +4,7 @@ let s:binPath = expand('<sfile>:p:h')
 function! s:osDetect() abort
   if has('win64')
       let os = 'windows'
-  else
+  elseif
       if has('mac')
         let os = 'darwin'
       else
@@ -34,9 +34,10 @@ endfunction
 
 " airline#extensions#system#get {{{
 function! airline#extensions#system#get() abort
+  let supported_platforms = ['darwin', 'linux']
   let os = s:osDetect()
 
-  if os ==# 'darwin'
+  if index(supported_platforms, os) >= 0
     let sysinfo = system(s:binPath . '/bin/' . os)
     return os . ' ' . substitute(sysinfo, '\n\+$', '', '')
   else

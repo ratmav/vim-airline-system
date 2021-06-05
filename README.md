@@ -9,7 +9,8 @@ vim-airline-system
 
 ## supported platforms
 
-64-bit macos (currently).
+* 64-bit macos
+* 64-bit linux
 
 ## installation
 
@@ -21,10 +22,12 @@ use git or your plugin manager of choice to install vim-airline-system.
 
 **note**: go v1.15
 
-```shell
-$ cd go
-$ go build -o ../autoload/airline/extensions/bin/darwin --mod=vendor
-```
+in the below example, `platform_name` would be "darwin" or "linux".
+
+  ```shell
+  $ cd go
+  $ go build -o ../autoload/airline/extensions/bin/platform_name --mod=vendor
+  ```
 
 ## acknowledgements
 
