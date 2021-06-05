@@ -4,7 +4,7 @@ let s:binPath = expand('<sfile>:p:h')
 function! s:osDetect() abort
   if has('win64')
       let os = 'windows'
-  elseif
+  else
       if has('mac')
         let os = 'darwin'
       else
