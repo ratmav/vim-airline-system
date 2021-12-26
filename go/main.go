@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/shirou/gopsutil/v3/load"
+	"github.com/shirou/gopsutil/v3/cpu"
 	"github.com/shirou/gopsutil/v3/mem"
 )
 
@@ -19,16 +19,21 @@ func date() string {
 	return fmt.Sprint(strings.ToLower(t.Format("Jan 02 15:04 MST")))
 }
 
-func cpu() string {
-	ms, err := load.Avg()
+func cpu_usage() string {
+	//ms, err := load.Avg()
+	//if err != nil {
+	//	return "err"
+	//}
+
+	cu, err := cpu.Percent((5 * time.Second), false)
 	if err != nil {
 		return "err"
 	}
 
-	return fmt.Sprintf("%.2f", ms.Load1)
+	return fmt.Sprintf("%.f", cu[0])
 }
 
-func ram() string {
+func ram_usage() string {
 	mu, err := mem.VirtualMemory()
 	if err != nil {
 		return "err"
@@ -38,10 +43,15 @@ func ram() string {
 }
 
 func main() {
-	fmt.Printf(
-		"[%scpu|%s%%ram] %s",
-		cpu(),
-		ram(),
-		date(),
-	)
+	for {
+		fmt.Printf(
+			"[%s%%cpu|%s%%ram] %s",
+			cpu_usage(),
+			ram_usage(),
+			date(),
+		)
+
+		fmt.Println("")
+		time.Sleep(5 * time.Second)
+	}
 }

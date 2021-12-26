@@ -7,10 +7,14 @@ vim-airline-system
 
 ![screenshot](https://github.com/ratmav/vim-airline-system/blob/master/screenshot.png?raw=true)
 
+* "cpu": cpu load average
+* "ram": virtual memory usage
+
 ## supported platforms
 
-* 64-bit macos
 * 64-bit linux
+* 64-bit macos
+* 64-bit windows
 
 ## installation
 
@@ -20,14 +24,19 @@ use git or your plugin manager of choice to install vim-airline-system.
 
 ### build
 
-**note**: go v1.15
-
-in the below example, `platform_name` would be "darwin" or "linux".
+**note**: go v1.17
 
   ```shell
   $ cd go
-  $ go build -o ../autoload/airline/extensions/bin/platform_name --mod=vendor
+  $ go build -o ../autoload/airline/extensions/bin/<platform_name/> --mod=vendor
   ```
+
+#### `platform_name`
+
+* linux -> `linux`
+* macos -> `darwin`
+* windows -> `windows.exe`
+  * `.exe` extension is necessary, because apparently [magic bytes](https://en.wikipedia.org/wiki/List_of_file_signatures) is only a thing on *nix platforms.
 
 ## acknowledgements
 
