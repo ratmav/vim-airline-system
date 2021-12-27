@@ -20,11 +20,7 @@ func date() string {
 }
 
 func cpu_usage() string {
-	//ms, err := load.Avg()
-	//if err != nil {
-	//	return "err"
-	//}
-
+	// get utilization over the last 5 seconds.
 	cu, err := cpu.Percent((5 * time.Second), false)
 	if err != nil {
 		return "err"
@@ -43,15 +39,10 @@ func ram_usage() string {
 }
 
 func main() {
-	for {
-		fmt.Printf(
-			"[%s%%cpu|%s%%ram] %s",
-			cpu_usage(),
-			ram_usage(),
-			date(),
-		)
-
-		fmt.Println("")
-		time.Sleep(5 * time.Second)
-	}
+	fmt.Printf(
+		"[%s%%cpu|%s%%ram] %s",
+		cpu_usage(),
+		ram_usage(),
+		date(),
+	)
 }
