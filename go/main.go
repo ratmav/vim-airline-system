@@ -20,8 +20,8 @@ func date() string {
 }
 
 func cpu_usage() string {
-	// get utilization over the last 5 seconds.
-	cu, err := cpu.Percent((5 * time.Second), false)
+	// get utilization over the last second.
+	cu, err := cpu.Percent((1 * time.Second), false)
 	if err != nil {
 		return "err"
 	}
