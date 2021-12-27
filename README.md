@@ -7,9 +7,6 @@ vim-airline-system
 
 ![screenshot](https://github.com/ratmav/vim-airline-system/blob/master/screenshot.png?raw=true)
 
-* "cpu": cpu load average
-* "ram": virtual memory usage
-
 ## supported platforms
 
 * 64-bit
