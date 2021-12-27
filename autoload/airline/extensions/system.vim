@@ -34,7 +34,7 @@ endfunction
 
 " airline#extensions#system#get {{{
 function! airline#extensions#system#get() abort
-  let supported_platforms = ['darwin', 'linux']
+  let supported_platforms = ['darwin', 'linux', 'windows']
   let os = s:osDetect()
 
   if index(supported_platforms, os) >= 0
@@ -54,7 +54,7 @@ endfunction
 
 " g:airline#extensions#system#timer {{{
 let g:airline#extensions#system#timer = timer_start(
-  \   10000, " run every 10 seconds.
+  \   10000,
   \   'airline#extensions#system#timerfn',
   \   {'repeat':-1}
   \ )
