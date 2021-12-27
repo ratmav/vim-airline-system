@@ -54,7 +54,7 @@ endfunction
 
 " g:airline#extensions#system#timer {{{
 let g:airline#extensions#system#timer = timer_start(
-  \   10000,
+  \   10000, " run every 10 seconds.
   \   'airline#extensions#system#timerfn',
   \   {'repeat':-1}
   \ )
