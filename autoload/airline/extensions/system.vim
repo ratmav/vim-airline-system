@@ -4,15 +4,18 @@ let s:binPath = expand('<sfile>:p:h')
 function! s:osDetect() abort
   if has('win64')
       let os = 'windows'
+      let bin = 'vasr_windows.exe'
   else
       if has('mac')
         let os = 'darwin'
+        let bin = 'vasr_darwin'
       else
         let os = 'linux'
+        let bin = 'vasr_linux'
       endif
   endif
 
-  return os
+  return [l:os, l:bin]
 endfunction
 " }}}
 
@@ -34,15 +37,11 @@ endfunction
 
 " airline#extensions#system#get {{{
 function! airline#extensions#system#get() abort
-  let supported_platforms = ['darwin', 'linux']
-  let os = s:osDetect()
-
-  if index(supported_platforms, os) >= 0
-    let sysinfo = system(s:binPath . '/bin/' . os)
-    return os . ' ' . substitute(sysinfo, '\n\+$', '', '')
-  else
-    return 'unsupported platform'
-  endif
+  let host = s:osDetect()
+  let os = host[0]
+  let bin = host[1]
+  let sysinfo = system(s:binPath . '/bin/' . bin)
+  return os . ' ' . substitute(sysinfo, '\n\+$', '', '')
 endfunction
 " }}}
 

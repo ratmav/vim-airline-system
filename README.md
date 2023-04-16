@@ -9,8 +9,9 @@ vim-airline-system
 
 ## supported platforms
 
-* 64-bit macos
 * 64-bit linux
+* 64-bit macos
+* 64-bit windows
 
 ## installation
 
@@ -20,18 +21,21 @@ use git or your plugin manager of choice to install vim-airline-system.
 
 ### build
 
-**note**: go v1.15
-
-in the below example, `platform_name` would be "darwin" or "linux".
+**note**: rustc v1.57.0
 
   ```shell
-  $ cd go
-  $ go build -o ../autoload/airline/extensions/bin/platform_name --mod=vendor
+  $ cd rust
+  $ rustup target add x86_64-apple-darwin
+  $ rustup target add x84_64-unknown-linux-gnu
+  $ rustup target add x86_64-pc-windows-msvc
+  $ cargo build --release
+  # windows build
+  $ cp ./target/relase/vasr.exe ../autoload/airline/extensions/bin/vasr_windows.exe
   ```
 
 ## acknowledgements
 
-* [gopsutil](https://github.com/shirou/gopsutil/) made this light work indeed.
+* [sys-info-rs](https://github.com/FillZpp/sys-info-rs) made this light work indeed.
 * [vim-airline](https://github.com/vim-airline/vim-airline): hard to extend something that doesn't exist.
 * [vim-airline-clock](https://github.com/enricobacis/vim-airline-clock) is a great example of a vim-airline extension.
 * [vim-ctrlspace](https://github.com/vim-ctrlspace/vim-ctrlspace) is a great example of using golang to extend vim plugins.
